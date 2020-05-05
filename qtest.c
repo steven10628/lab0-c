@@ -63,6 +63,7 @@ static int string_length = MAXSTRING;
 static const char charset[] = "abcdefghijklmnopqrstuvwxyz";
 
 /* Forward declarations */
+bool do_hello(int argc, char *argv[]);
 static bool show_queue(int vlevel);
 static bool do_new(int argc, char *argv[]);
 static bool do_free(int argc, char *argv[]);
@@ -79,6 +80,7 @@ static void queue_init();
 
 static void console_init()
 {
+    add_cmd("hello", do_hello, "                | Print hello message");
     add_cmd("new", do_new, "                | Create new queue");
     add_cmd("free", do_free, "                | Delete queue");
     add_cmd("ih", do_insert_head,

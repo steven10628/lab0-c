@@ -66,7 +66,7 @@ static char *prompt = "cmd> ";
 #define MAXQUIT 10
 static cmd_function quit_helpers[MAXQUIT];
 static int quit_helper_cnt = 0;
-
+bool do_hello(int argc, char *argv[]);
 static bool do_quit_cmd(int argc, char *argv[]);
 static bool do_help_cmd(int argc, char *argv[]);
 static bool do_option_cmd(int argc, char *argv[]);
@@ -291,7 +291,10 @@ static bool do_quit_cmd(int argc, char *argv[])
     quit_flag = true;
     return ok;
 }
-
+bool do_hello(int argc, char *argv[])
+{
+    return (bool) printf("Hello, World\n");
+}
 static bool do_help_cmd(int argc, char *argv[])
 {
     cmd_ptr clist = cmd_list;
